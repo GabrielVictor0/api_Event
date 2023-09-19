@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9L0Il6lnTrpnDYX8+mM5urtVTzznvVddyuQa9WD+XPZcrAH7jEF4/URE30d19XMGpTdFvLZXpZ6fA3G6x5JgZg==",
+  "dgSpecHash": "4uyYV9HFAk8JqkviZw5HrNYyCnj67riJ8/mPcUyrP9YApWF1wgBFUV70GwHS3ZPvtIcKBaa7u3C/GuDtvdkhIA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\47349403801\\Desktop\\webapi.event+.manha\\webapi.event+.manha.csproj",
+  "projectFilePath": "C:\\Users\\47349403801\\Desktop\\api_Event\\webapi.event+.manha\\webapi.event+.manha.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\47349403801\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\47349403801\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
