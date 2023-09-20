@@ -18,18 +18,29 @@ namespace webapi.event_.manha.Repositories
         {
             try
             {
-                Usuario usuarioBuscado = _eventContext.Usuario.FirstOrDefault(u => u.Email == email)!;
+                Usuario usuarioBuscado = _eventContext.Usuario.Select(u => new Usuario
+                {
+                    IdUsuario = u.IdUsuario,
+                    Nome = u.Nome,
+                    Email = u.Email,
+                    IdTipoUsuario = u.IdTipoUsuario,
+                    TiposUsuario = new TiposUsuario
+                    {
+                        IdTipoUsuario = u.TiposUsuario!.IdTipoUsuario,
+                        Titulo = u.TiposUsuario.Titulo
+                    }
+                }).FirstOrDefault(u => u.Email == email)!;
 
                 if (usuarioBuscado != null)
                 {
                     bool confere = Criptografia.CompararHash(senha, usuarioBuscado.Senha!);
 
                     if (confere)
-                    {
+                    {   
                         return usuarioBuscado;
                     }
                 }
-                return null;
+                return null!;
             }
             catch (Exception)
             {
@@ -47,9 +58,11 @@ namespace webapi.event_.manha.Repositories
                 {
                     IdUsuario = u.IdUsuario,
                     Nome = u.Nome,
+                    Email = u.Email,
+                    IdTipoUsuario= u.IdTipoUsuario,
                     TiposUsuario = new TiposUsuario
                     {
-                        IdTipoUsuario = u.TiposUsuario.IdTipoUsuario,
+                        IdTipoUsuario = u.TiposUsuario!.IdTipoUsuario,
                         Titulo = u.TiposUsuario.Titulo
                     }
                 }).FirstOrDefault(u => u.IdUsuario == id)!;
@@ -58,7 +71,7 @@ namespace webapi.event_.manha.Repositories
                 {
                     return usuarioBuscado;
                 }
-                return null;
+                return null!;
             }
             catch (Exception)
             {

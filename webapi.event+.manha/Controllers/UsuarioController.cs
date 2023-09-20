@@ -51,5 +51,21 @@ namespace webapi.event_.manha.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult Get(string email, string senha)
+        {
+            try
+            {
+                Usuario usuarioBuscado = _usarioRepositoy.BuscarPorEmailESenha(email, senha);
+
+               return Ok(usuarioBuscado);
+            }
+            catch (Exception error)
+            {
+
+                return BadRequest(error.Message);
+            }
+        }
+
     }
 }

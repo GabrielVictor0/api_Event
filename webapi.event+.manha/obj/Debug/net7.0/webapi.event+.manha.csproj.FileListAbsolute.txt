@@ -80,3 +80,5 @@ C:\Users\47349403801\Desktop\api_Event\webapi.event+.manha\obj\Debug\net7.0\refi
 C:\Users\47349403801\Desktop\api_Event\webapi.event+.manha\obj\Debug\net7.0\webapi.event+.manha.pdb
 C:\Users\47349403801\Desktop\api_Event\webapi.event+.manha\obj\Debug\net7.0\webapi.event+.manha.genruntimeconfig.cache
 C:\Users\47349403801\Desktop\api_Event\webapi.event+.manha\obj\Debug\net7.0\ref\webapi.event+.manha.dll
+C:\Users\47349403801\Desktop\api_Event\webapi.event+.manha\bin\Debug\net7.0\webapi.event+.manha.xml
+C:\Users\47349403801\Desktop\api_Event\webapi.event+.manha\obj\Debug\net7.0\webapi.event+.manha.xml
