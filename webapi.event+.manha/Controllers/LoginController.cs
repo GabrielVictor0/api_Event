@@ -12,6 +12,7 @@ namespace webapi.event_.manha.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json")]
     public class LoginController : ControllerBase
     {
         private IUsuarioRepository _usuariorepository;
@@ -21,12 +22,17 @@ namespace webapi.event_.manha.Controllers
             _usuariorepository = new UsuarioRepository();
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de Login
+        /// </summary>
+        /// <param name="usuario">Usuario que vai ser logado</param>
+        /// <returns>Retorna um token de verificação</returns>
         [HttpPost]
         public IActionResult Post(LoginViewModel usuario)
         {
             try
             {
-                Usuario usuarioBuscado = _usuariorepository.BuscarPorEmailESenha(usuario.Senha!, usuario.Email!);
+                Usuario usuarioBuscado = _usuariorepository.BuscarPorEmailESenha(usuario.Email!, usuario.Senha!);
 
                 if (usuarioBuscado == null)
                 {
@@ -37,13 +43,13 @@ namespace webapi.event_.manha.Controllers
 
                 var claims = new[]
                 {
-                    new Claim(JwtRegisteredClaimNames.Email,usuarioBuscado.Email!),
-                    new Claim(JwtRegisteredClaimNames.Name,usuarioBuscado.Nome!),
-                    new Claim(JwtRegisteredClaimNames.Jti,usuarioBuscado.IdUsuario.ToString()),
+                    new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email!),
+                    new Claim(JwtRegisteredClaimNames.Name, usuarioBuscado.Nome!),
+                    new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
                     new Claim(ClaimTypes.Role,usuarioBuscado.TiposUsuario!.Titulo!)
                 };
 
-                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("event-webapi-chave-autenticacao"));
+                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("projeto-event-webapi-chave-autenticacao"));
 
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
@@ -55,17 +61,14 @@ namespace webapi.event_.manha.Controllers
                         signingCredentials: creds
                         );
 
-                return Ok(new
-                {
-                    token = new JwtSecurityTokenHandler().WriteToken(token)
-                });
+                return Ok(new{token = new JwtSecurityTokenHandler().WriteToken(token)});
 
 
             }
-            catch (Exception error)
+            catch (Exception)
             {
 
-                return BadRequest(error.Message);
+                throw;
             }
         }
 

@@ -19,6 +19,11 @@ namespace webapi.event_.manha.Controllers
             _usarioRepositoy = new UsuarioRepository();
         }
 
+        /// <summary>
+        /// EndPint que aciona o método de cadastro de usuario
+        /// </summary>
+        /// <param name="usuario">objeto(usuario) que será cadastrado</param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post(Usuario usuario)
         {
@@ -35,6 +40,11 @@ namespace webapi.event_.manha.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de buscar objeto(usuario) pelo ID
+        /// </summary>
+        /// <param name="id">ID do objeto que será buscado</param>
+        /// <returns>retorna o obejto buscado pelo ID</returns>
         [HttpGet("{id}")]
         public IActionResult Get(Guid id)
         {
@@ -44,13 +54,19 @@ namespace webapi.event_.manha.Controllers
 
                 return Ok(usuario);
             }
-            catch (Exception)
+            catch (Exception error)
             {
 
-                throw;
+                return BadRequest(error.Message);
             }
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de Busca com os parâmetros Email e Senha
+        /// </summary>
+        /// <param name="email">email do objeto que será buscado</param>
+        /// <param name="senha">senha do objeto que será buscado</param>
+        /// <returns>retorna o objeto(usuario) buscado pelo email e senha</returns>
         [HttpGet]
         public IActionResult Get(string email, string senha)
         {
@@ -67,5 +83,47 @@ namespace webapi.event_.manha.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de Deletar objeto(usuario) pelo ID
+        /// </summary>
+        /// <param name="id">ID do objeto que será deletado</param>
+        /// <returns></returns>
+        [HttpDelete]
+        public IActionResult Delete(Guid id)
+        {
+            try
+            {
+                _usarioRepositoy.Deletar(id);
+
+                return StatusCode(204);
+            }
+            catch (Exception error)
+            {
+
+                return BadRequest(error.Message);
+            }
+        }
+
+        /// <summary>
+        /// EndPoint que aciona o método de atualizar objeto(usuario) pelo seu ID
+        /// </summary>
+        /// <param name="id">ID do objeto que será deletado</param>
+        /// <param name="usuarioAtualizado">Informações atualidas do objeto</param>
+        /// <returns></returns>
+        [HttpPut]
+        public IActionResult Put(Guid id, Usuario usuarioAtualizado)
+        {
+            try
+            {
+                _usarioRepositoy.Atualizar(id, usuarioAtualizado);
+
+                return NoContent();
+            }
+            catch (Exception error)
+            {
+
+                return BadRequest(error.Message);
+            }
+        }
     }
 }

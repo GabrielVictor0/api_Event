@@ -14,6 +14,25 @@ namespace webapi.event_.manha.Repositories
         {
             _eventContext = new EventContext();
         }
+
+        public void Atualizar(Guid id, Usuario usuarioAtualizado)
+        {
+            Usuario usuarioBuscado = _eventContext.Usuario.Find(id)!;
+
+            if (usuarioBuscado != null)
+            {
+                usuarioBuscado.Nome = usuarioAtualizado.Nome;
+
+                usuarioBuscado.Email = usuarioAtualizado.Email;
+
+                usuarioBuscado.Senha = usuarioAtualizado.Senha;
+            }
+
+            _eventContext.Usuario.Update(usuarioBuscado!);
+
+            _eventContext.SaveChanges();
+        }
+
         public Usuario BuscarPorEmailESenha(string email, string senha)
         {
             try
@@ -23,11 +42,12 @@ namespace webapi.event_.manha.Repositories
                     IdUsuario = u.IdUsuario,
                     Nome = u.Nome,
                     Email = u.Email,
+                    Senha = u.Senha,
                     IdTipoUsuario = u.IdTipoUsuario,
                     TiposUsuario = new TiposUsuario
                     {
                         IdTipoUsuario = u.TiposUsuario!.IdTipoUsuario,
-                        Titulo = u.TiposUsuario.Titulo
+                        Titulo = u.TiposUsuario!.Titulo
                     }
                 }).FirstOrDefault(u => u.Email == email)!;
 
@@ -59,11 +79,12 @@ namespace webapi.event_.manha.Repositories
                     IdUsuario = u.IdUsuario,
                     Nome = u.Nome,
                     Email = u.Email,
+                    Senha = u.Senha,
                     IdTipoUsuario= u.IdTipoUsuario,
                     TiposUsuario = new TiposUsuario
                     {
                         IdTipoUsuario = u.TiposUsuario!.IdTipoUsuario,
-                        Titulo = u.TiposUsuario.Titulo
+                        Titulo = u.TiposUsuario!.Titulo
                     }
                 }).FirstOrDefault(u => u.IdUsuario == id)!;
 
@@ -83,19 +104,25 @@ namespace webapi.event_.manha.Repositories
 
         public void Cadastrar(Usuario usuario)
         {
-            try
-            {
+           
                 usuario.Senha = Criptografia.GerarHash(usuario.Senha!);
 
                 _eventContext.Usuario.Add(usuario);
 
                 _eventContext.SaveChanges();
-            }
-            catch (Exception)
-            {
+           
+        }
 
-                throw;
-            }
+        public void Deletar(Guid id)
+        {
+           
+               Usuario usuarioBuscado = _eventContext.Usuario.Find(id)!;
+
+               _eventContext.Usuario.Remove(usuarioBuscado);
+
+                _eventContext.SaveChanges();
+            
+          
         }
     }
 }

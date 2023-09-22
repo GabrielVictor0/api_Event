@@ -4,6 +4,217 @@
         <name>webapi.event+.manha</name>
     </assembly>
     <members>
+        <member name="M:webapi.event_.manha.Controllers.ComentariosEventoController.Post(webapi.event_.manha.Domains.ComentariosEvento)">
+            <summary>
+            EndPoint que aciona o método de cadastrar comentário
+            </summary>
+            <param name="comentario">comentário que será cadstrado</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.ComentariosEventoController.Get">
+            <summary>
+            EndPoint que aciona o método de Listar comentários
+            </summary>
+            <returns>Lista de comentários com todos objetos</returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.ComentariosEventoController.GetById(System.Guid)">
+            <summary>
+            EndPoint que aciona o método de Listar comentário pelo ID
+            </summary>
+            <param name="id">ID do comentário que será buscado</param>
+            <returns>objeto com o ID buscado</returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.ComentariosEventoController.Delete(System.Guid)">
+            <summary>
+            EndPoint que aciona o método de deletar objeto pelo ID
+            </summary>
+            <param name="id">ID do objeto que será deletado</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.EventoController.Post(webapi.event_.manha.Domains.Evento)">
+            <summary>
+            EndPoint que aciona o método de cadastro Evento
+            </summary>
+            <param name="eventoNovo">Novo evento cadastrado</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.EventoController.Get">
+            <summary>
+            EndPoint que aciona o método de ListaEvento 
+            </summary>
+            <returns>retorna lista de evento com todos objetos</returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.EventoController.GetById(System.Guid)">
+            <summary>
+            EndPoint que aciona o método de buscar evento pelo ID
+            </summary>
+            <param name="id">ID do evento buscado</param>
+            <returns>evento que possui ID buscado</returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.EventoController.Delete(System.Guid)">
+            <summary>
+            EndPoint que aciona o método de deletar evento pelo ID
+            </summary>
+            <param name="id">ID do evento que será deletado</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.EventoController.Put(webapi.event_.manha.Domains.Evento,System.Guid)">
+            <summary>
+            EndPoint que aciona o método de atualizar evento pelo ID
+            </summary>
+            <param name="evento">objeto(evento0 atualizado</param>
+            <param name="id">ID do evento que será atualizado</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.InstituicaoController.Post(webapi.event_.manha.Domains.Instituicao)">
+            <summary>
+            EndPoint que aciona o método de cadastro de Instituicao
+            </summary>
+            <param name="instituicaoNova">obejto(instituicao) que será cadastrado</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.InstituicaoController.GetById(System.Guid)">
+            <summary>
+            EndPoint que aciona o método de Buscar objeto pelo ID
+            </summary>
+            <param name="id">ID do objeto(instituicao) que vai ser buscado</param>
+            <returns>retorna objeto com o ID buscado</returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.InstituicaoController.Get">
+            <summary>
+            EndPoint que aciona o método de ListaInstituicao
+            </summary>
+            <returns>retorna ListaInstituicao com todos objetos</returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.InstituicaoController.Delete(System.Guid)">
+            <summary>
+            EndPoint que aciona o método de Deletar Instituicao pelo ID
+            </summary>
+            <param name="id">ID da instituicao que vai ser deletada</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.InstituicaoController.Put(System.Guid,webapi.event_.manha.Domains.Instituicao)">
+            <summary>
+            EndPoint que aciona o método de atualizar instituicao pelo ID
+            </summary>
+            <param name="id">ID da instituicao atualizada</param>
+            <param name="instituicaoAtualizada">instituicao atualizada</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.LoginController.Post(webapi.event_.manha.ViewModels.LoginViewModel)">
+            <summary>
+            EndPoint que aciona o método de Login
+            </summary>
+            <param name="usuario">Usuario que vai ser logado</param>
+            <returns>Retorna um token de verificação</returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.TiposEventoController.Post(webapi.event_.manha.Domains.TiposEvento)">
+            <summary>
+            EndPoint que aciona o método de cadastro TipoEvento
+            </summary>
+            <param name="novoEvento">obejto(Evento) que será cadastrado</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.TiposEventoController.GetById(System.Guid)">
+            <summary>
+            EndPoint que aciona o método de Buscar TipoEvento pelo ID
+            </summary>
+            <param name="id">ID do TipoEvento que será buscado</param>
+            <returns>Retorna o objeto com ID buscado</returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.TiposEventoController.Get">
+            <summary>
+            EndPoint que aciona o método de ListarEventos
+            </summary>
+            <returns>Retorna todos TipoEvento</returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.TiposEventoController.Delete(System.Guid)">
+            <summary>
+            EndPoint que aciona o método de Deletar TipoEvento pelo ID
+            </summary>
+            <param name="id">ID do TipoEvento que será deletado</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.TiposEventoController.Put(System.Guid,webapi.event_.manha.Domains.TiposEvento)">
+            <summary>
+            EndPoint que aciona o método de Atualizar TipoEvento pelo ID
+            </summary>
+            <param name="id">ID do TipoEvento que será atualizado</param>
+            <param name="novoEvento">TipoEvento atualizado</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.TiposUsuarioController.Post(webapi.event_.manha.Domains.TiposUsuario)">
+            <summary>
+            EndPoint que aciona o método de cadastro TipoUsuario
+            </summary>
+            <param name="tiposUsuario">objeto que será cadastrado</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.TiposUsuarioController.Delete(System.Guid)">
+            <summary>
+            EndPoint que aciona o método de deletar TipoUsuario por seu ID
+            </summary>
+            <param name="id">ID do objeto que será deletado </param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.TiposUsuarioController.Get(System.Guid)">
+            <summary>
+            EndPoint que aciona o método de buscar por ID
+            </summary>
+            <param name="id">ID do TipoUsuario que será buscado</param>
+            <returns>objeto encontrado</returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.TiposUsuarioController.Get">
+            <summary>
+            EndPoint que aciona o método de listar todos TipoUsuario
+            </summary>
+            <returns>Lista com todos objetos TipoUsuario</returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.TiposUsuarioController.Put(System.Guid,webapi.event_.manha.Domains.TiposUsuario)">
+            <summary>
+            EndPoint que aciona o método de atualizar com o parâmetro ID
+            </summary>
+            <param name="id">ID do objeto TipoUsuario que será atualizado</param>
+            <param name="tipoUsuarioAtualizado">Objeto TipoUsuario atualizado</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.UsuarioController.Post(webapi.event_.manha.Domains.Usuario)">
+            <summary>
+            EndPint que aciona o método de cadastro de usuario
+            </summary>
+            <param name="usuario">objeto(usuario) que será cadastrado</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.UsuarioController.Get(System.Guid)">
+            <summary>
+            EndPoint que aciona o método de buscar objeto(usuario) pelo ID
+            </summary>
+            <param name="id">ID do objeto que será buscado</param>
+            <returns>retorna o obejto buscado pelo ID</returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.UsuarioController.Get(System.String,System.String)">
+            <summary>
+            EndPoint que aciona o método de Busca com os parâmetros Email e Senha
+            </summary>
+            <param name="email">email do objeto que será buscado</param>
+            <param name="senha">senha do objeto que será buscado</param>
+            <returns>retorna o objeto(usuario) buscado pelo email e senha</returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.UsuarioController.Delete(System.Guid)">
+            <summary>
+            EndPoint que aciona o método de Deletar objeto(usuario) pelo ID
+            </summary>
+            <param name="id">ID do objeto que será deletado</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.UsuarioController.Put(System.Guid,webapi.event_.manha.Domains.Usuario)">
+            <summary>
+            EndPoint que aciona o método de atualizar objeto(usuario) pelo seu ID
+            </summary>
+            <param name="id">ID do objeto que será deletado</param>
+            <param name="usuarioAtualizado">Informações atualidas do objeto</param>
+            <returns></returns>
+        </member>
         <member name="T:webapi.event_.manha.Migrations.DB">
             <inheritdoc />
         </member>

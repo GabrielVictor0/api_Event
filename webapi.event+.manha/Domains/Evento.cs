@@ -31,7 +31,7 @@ namespace webapi.event_.manha.Domains
         //referencia tabela Instituicao = FK
 
         [Required(ErrorMessage = "Instituicao obrigatoria!")]
-        public Guid IdInstituicao { get; set; } = Guid.NewGuid();
+        public Guid IdInstituicao { get; set; }
 
         [ForeignKey(nameof(IdInstituicao))]
         public Instituicao? Instituicao { get; set; }
