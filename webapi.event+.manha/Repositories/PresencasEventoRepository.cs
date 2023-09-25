@@ -19,7 +19,12 @@ namespace webapi.event_.manha.Repositories
             if (presencaBuscada != null)
             {
 
+                presencaBuscada.Situacao = presenca.Situacao;
             }
+
+            _eventContext.PresencasEvento.Update(presencaBuscada!);
+
+            _eventContext.SaveChanges();
         }
 
         public void Cadastrar(PresencasEvento presenca)

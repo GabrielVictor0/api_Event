@@ -108,6 +108,33 @@
             <param name="usuario">Usuario que vai ser logado</param>
             <returns>Retorna um token de verificação</returns>
         </member>
+        <member name="M:webapi.event_.manha.Controllers.PresencasEventoController.Put(webapi.event_.manha.Domains.PresencasEvento)">
+            <summary>
+            EndPoint que aciona o método de cadastrar presencaEvento
+            </summary>
+            <param name="presencaEvento"> objeto(presencaEvento) que será cadastrado</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.PresencasEventoController.Delete(System.Guid)">
+            <summary>
+            EndPoint que aciona o método de deletar presencaEvento
+            </summary>
+            <param name="id">ID do objeto que será deletado</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.PresencasEventoController.GetById(System.Guid)">
+            <summary>
+            EndPoint que busca presencaEvento pelo ID
+            </summary>
+            <param name="id">ID do objeto que será buscado</param>
+            <returns>retorna objeto que tem o ID buscado</returns>
+        </member>
+        <member name="M:webapi.event_.manha.Controllers.PresencasEventoController.Get">
+            <summary>
+            EndPoint que aciona o método de ListaPresenca
+            </summary>
+            <returns>Lista de presencas com todos objetos</returns>
+        </member>
         <member name="M:webapi.event_.manha.Controllers.TiposEventoController.Post(webapi.event_.manha.Domains.TiposEvento)">
             <summary>
             EndPoint que aciona o método de cadastro TipoEvento
